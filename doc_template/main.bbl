@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+
+\bibitem[{Abels(2005)}]{Abels2005}
+Abels, Klaus. 2005.
+\newblock ``{E}xpletive negation" in {R}ussian: A conspiracy theory.
+\newblock \emph{Journal of Slavic Linguistics} 13(1). 5--74.
+\newblock \urlprefix\url{https://www.jstor.org/stable/24599547}.
+
+\end{thebibliography}

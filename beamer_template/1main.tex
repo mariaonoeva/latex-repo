@@ -1,0 +1,875 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+% !TeX program = xelatex
+%----------------------------------------------------------------------------------------
+\documentclass[xcolor=dvipsnames]{beamer}
+\usetheme{SimplePlus}
+\usepackage{polyglossia}
+\usepackage{amssymb}
+\usepackage{amsmath} %math fractions
+\usepackage{hyperref}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{linguex,cgloss}
+\usepackage{natbib}
+\usepackage{soul} % to highlight text 
+%\usepackage{color} % to color text 
+\usepackage{multicol} % pretty clear i guess :]
+%\usepackage[pdftex]{graphicx}
+\usepackage{array} % for tables, do not remove 
+\newcolumntype{Y}{>{\centering\arraybackslash}X} %for table collumns
+\usepackage{tabularx}
+%\usepackage[table]{xcolor}
+\usepackage{xspace}
+\usepackage[export]{adjustbox}% for two pics being side by side
+\bibliographystyle{sp-r}
+\usepackage{libertinus} % the best font evar! 
+\usepackage[T1]{fontenc}
+\usepackage{stmaryrd}
+\usepackage{qtree}
+% \usepackage{csquotes} % for quotes
+% for circuled numbers
+\usepackage{amsfonts}
+%\usepackage{tikz, subfigure}
+\usepackage{tikz}
+\usepackage{subcaption} % intead of outdated subfigure
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+% macros for citations:
+
+% for inqusitive semantics
+% \tikzstyle{index on}=[inner sep=2pt, white, circle, fill=black]
+% \tikzstyle{index off}=[inner sep=2pt, black, circle, draw]
+% \tikzstyle{index gray}=[inner sep=2pt, black, circle, fill=lightgray]
+% \tikzstyle{opaque}=[fill=gray,fill opacity=.1]
+% \tikzstyle{counter}=[densely dashed] 
+
+%removing capture
+\usepackage[font=scriptsize]{caption}
+%\captionsetup{labelformat=empty,labelsep=none}
+
+\newcommand{\citeposst}[1]{\citeauthor{#1}'s (\citeyear{#1})} % produces Chomsky's (1995)
+\newcommand{\citeposstpg}[2]{\citeauthor{#1}'s (\citeyear[#2]{#1})} % produces Chomsky's (1995: page)
+\newcommand{\citepossalt}[1]{\citeauthor{#1}'s \citeyear{#1}} % produces Chomsky's 1995
+\newcommand{\citepossaltpg}[2]{\citeauthor{#1}'s \citeyear[#2]{#1}} % produces Chomsky's 1995: page
+
+% for cgloss.sty and sans serif (without the fisrt two lines are serif)
+\renewcommand{\eachwordone}{\textsf}
+\renewcommand{\eachwordtwo}{\textsf}
+
+% for commenting in the examples 
+%\setlength{\Exlabelsep}{0.3em}
+\newcommand{\rcommentg}[1]{\hfill\raisebox{1.9\baselineskip}[0pt][0pt]{#1}}
+\newcommand{\rcommentgg}[1]{\hfill\raisebox{1.1\baselineskip}[0pt][0pt]{#1}}
+
+% for checkmarks in examples
+\newcommand{\jdg}[1]{\makebox[0pt][r]{\normalfont#1\ignorespaces}}
+
+
+
+%\renewcommand{\bibliographytypesize}{\scriptsize}
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+% \AtBeginSection[]{
+%   \begin{frame}
+%   \vfill
+%   \centering
+%   \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+%     \usebeamerfont{title}\insertsectionhead\par%
+%   \end{beamercolorbox}
+%   \vfill
+%   \end{frame}
+% }
+
+\title[SinFonIJA16]{Negation in Russian \\ polar questions} % The short title appears at the bottom of every slide, the full title is only on the title page
+\subtitle{Syntactic and semantic/pragmatic aspects}
+
+\author{Maria Onoeva \& Radek Šimík}
+\institute[CUNI]{onoevam@ff.cuni.cz, radek.simik@ff.cuni.cz} % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+% {
+%     Department of Computer Science and Information Engineering \\
+%     National Taiwan University % Your institution for the title page
+% }
+
+\date{September 21-23, 2023 \\ SinFonIJa 16 MUNI Brno} % Date, can be changed to a custom date
+\titlegraphic{\includegraphics[width=.4\textwidth]{pics/charles-university-logo.png}}
+
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+\setbeamercovered{invisible}
+\setcitestyle{notesep={: },yysep={, },aysep={}}
+
+\begin{frame}[plain]
+    % Print the title page as the first slide
+    \titlepage
+\end{frame}
+
+\begin{frame}{Overview}
+%     % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+     \tableofcontents
+\end{frame}
+
+\section{Intro}
+\begin{frame}{Russian PQs}
+    \begin{footnotesize}
+        \cite{Restan1972,King1994, Satunovskij2005, Esipova2023}
+    \end{footnotesize}
+    
+    \ex. \label{ex:pos} \ag. Kupil \textcolor<2->{purple}{\textbf<2->{li}} Maks v magazine xleb? \\ 
+    bought \textsc{li} Max in shop bread \\\\
+    `Did Max buy bread in the shop?' \rcommentg{V1 \textit{li}} \\
+    \bg. Maks \textcolor<3->{purple}{\textbf<3->{kupil}}$_{L+H*}$ v magazine xleb? \\
+    Max bought in shop bread \\\\
+    `Did Max buy bread in the shop?' \rcommentg{intonation $=$ V2} \\
+    \par
+    \pause
+    \onslide<4>{
+   
+    \ex. \label{ex:neg} \ag. \textcolor{RoyalBlue}{Ne} 
+    \textcolor{RoyalBlue}{kupil} \textcolor{RoyalBlue}{li} Maks v magazine xleb? \\
+    not bought \textsc{li} Max in shop bread \\\\
+    `Didn't Max buy bread in the shop?' \rcommentg{\textcolor{RoyalBlue}{\textsc{highNPQs}}}\\
+     \bg. Maks \textcolor{WildStrawberry}{ne} \textcolor{WildStrawberry}{kupil}
+     v magazine xleb? \\
+    Max not bought in shop bread \\\\
+    `Did Max not buy bread in the shop?' \rcommentg{\textcolor{WildStrawberry}{\textsc{lowNPQs}}}\\
+    \par }
+
+\end{frame}
+
+\begin{frame}{Research questions}
+
+    \begin{itemize}
+        \item[\circled{1}] What is the syntactic-semantic status of the negation depending 
+        on the question type? \\
+        \begin{scriptsize}
+            \cite{Brown1995, Abels2005, Zanon2023}
+        \end{scriptsize}
+        \begin{itemize}
+            \item V1 \textit{li}: \textcolor{RoyalBlue}{\textsc{high}} negation corresponds 
+            \textcolor{Plum}{\textsc{outer}} negation (no NCIs)
+            \item V2: \textcolor{WildStrawberry}{\textsc{low}} negation corresponds to both 
+            \textcolor{Plum}{\textsc{outer}} and \textcolor{Orange}{\textsc{inner}} negation
+
+            \onslide<4->{\item[$\rightarrow$] confirmed}
+        \end{itemize}\pause
+        \item[\circled{2}] How does negation interact with evidential bias? 
+        \begin{scriptsize} \\
+            \cite{buring-gunlogson00, Sudo2013, roelofsen2013positive, AnderBois2019}; a.o.
+        \end{scriptsize}
+        \begin{itemize}
+            \item \textcolor{WildStrawberry}{\textsc{low}} negation is linked to negative evidence 
+            \item \textcolor{RoyalBlue}{\textsc{high}}  negation is not felicitous with positive evidence 
+            % \begin{itemize}
+            %     \item negative \ding{51}, neutral \ding{51}
+            % \end{itemize} 
+            \onslide<5->{\item[$\rightarrow$] Russian NPQs are never more natural in negative contexts}
+        \end{itemize} \pause 
+        \item[\circled{3}] How does the particle \textit{razve} correlate with evidential bias? \\
+        \begin{scriptsize}
+            \cite{Repptoappear, Korotkovatoappear}
+        \end{scriptsize}
+        \begin{itemize}
+            \item evidence for the prejacent and epistemic bias against it
+            \onslide<6->{\item[$\rightarrow$] confirmed: evidential bias affects naturalness}
+        \end{itemize}
+    \end{itemize}
+    
+\end{frame}
+
+% \begin{frame}{Research questions}
+%     \begin{itemize}
+%         \item[\circled{1}] What is the syntactic-semantic status of the negation depending on the question type? 
+%         \begin{itemize}
+%             \item \textcolor{RoyalBlue}{\textsc{highNPQs}} ($=$ negative V1 \textit{li}) 
+%             $\times$ \textcolor{WildStrawberry}{\textsc{lowNPQs}} ($=$ negative V2)
+%         \end{itemize}
+%         \vspace{1em}
+%         \item[\circled{2}] How does negation interact with evidential bias? 
+%         \begin{itemize}
+%             \item similar to English or not
+%         \end{itemize}
+%         \vspace{1em}
+%         \item[\circled{3}] How does the particle \textit{razve} correlate with evidential bias?  
+
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Research questions}
+%     \begin{itemize}
+%         \item[\circled{2}] How does negation interact with evidential bias? \\
+%         \begin{scriptsize}
+%             \cite{buring-gunlogson00, Sudo2013, roelofsen2013positive, AnderBois2019}; a.o.
+%         \end{scriptsize}
+%         \begin{itemize}
+%             \item \textcolor{WildStrawberry}{\textsc{low}} negation is linked to negative evidence 
+%             \item \textcolor{RoyalBlue}{\textsc{high}}  negation is not felicitous with positive evidence 
+%             % \begin{itemize}
+%             %     \item negative \ding{51}, neutral \ding{51}
+%             % \end{itemize}
+%             \item Russian negative PQs are never more natural in negative contexts 
+%         \end{itemize}
+%     \end{itemize}
+% \end{frame}
+
+% \begin{frame}{Research questions}
+%     \begin{itemize}
+%         \item[\circled{3}] How does the particle \textit{razve} correlate with evidential bias? \\
+%         \begin{scriptsize}
+%             \cite{Repptoappear, Korotkovatoappear}
+%         \end{scriptsize}
+%         \begin{itemize}
+%             \item evidence for the prejacent and epistemic bias against it
+%         \end{itemize}
+%     \end{itemize}
+% \end{frame}
+
+\section{Background}
+\begin{frame}{Negation in PQs}
+    \onslide<1->{
+    \begin{large} {\textcolor{RoyalBlue}{\textsc{high}} $\times$ \textcolor{WildStrawberry}{\textsc{low}}}: 
+    \end{large} syntactic distinction 
+    \begin{small}
+        \ex. \a. \textcolor{RoyalBlue}{Didn't} Sasha come to the party? \label{ex:high}
+        \b. Did Sasha \textcolor{WildStrawberry}{not} come to the party? \label{ex:low}
+        \par
+    \end{small}
+    }
+
+    \onslide<2->{
+        \begin{large}\textcolor{Plum}{\textsc{outer}} $\times$ \textcolor{Orange}{\textsc{inner}}: 
+        \end{large} semantic distinction \\
+        \begin{scriptsize}\cite{Ladd1981, buring-gunlogson00, romero-han04}\end{scriptsize}
+        \begin{small}
+            \ex. \label{ex:out-neg} \a.[Ad:] We need a person with a spouse for the experiment. 
+            \b.[Sp:] \textcolor<4>{RoyalBlue}{Isn't} Natasha married? 
+            \hfill \textcolor{Plum}{\textsc{outer}} $=$ \textcolor{Plum}{checking $p$}
+            \par
+        \end{small}}
+    
+        \onslide<3->{
+            \begin{small}
+                \ex. \label{ex:inn-neg} \a.[Ad:] Natasha is going out for a date tonight with a new partner.    
+                \b.[Sp:] Is Natasha \textcolor<4>{WildStrawberry}{not} married? 
+                \hfill \textcolor{Orange}{\textsc{inner}} $=$ \textcolor{Orange}{checking $\neg p$}
+                \par
+            \end{small}}
+
+\end{frame}
+
+\begin{frame}{Negation in PQs}
+    polarity items \textit{too} and \textit{either} to disambiguate readings in (American) English 
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item \textcolor{RoyalBlue}{\textsc{high}} $\rightarrow$ 
+                \textcolor{Plum}{\textsc{outer}} or \textcolor{Orange}{\textsc{inner}}
+                \item \textcolor{WildStrawberry}{\textsc{low}} $\rightarrow$ \textcolor{Orange}{\textsc{inner}} \\
+                \begin{scriptsize}
+                    e.g. \cite{romero-han04}           
+                \end{scriptsize}
+            \end{itemize}
+                \begin{small}
+                    \ex. \a. \textcolor{RoyalBlue}{Isn't} Jane coming \textcolor{Plum}{too}? 
+                    \b. \textcolor{RoyalBlue}{Isn't} Jane coming \textcolor{Orange}{either}?
+                    \b. *Is Jane \textcolor{WildStrawberry}{not} coming \textcolor{Plum}{too}? 
+                    \b. Is Jane \textcolor{WildStrawberry}{not} coming \textcolor{Orange}{either}? 
+                    \par
+                \end{small}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item \textcolor{RoyalBlue}{\textsc{high}} $\rightarrow$ \textcolor{Plum}{\textsc{outer}}
+                \item \textcolor{WildStrawberry}{\textsc{low}} $\rightarrow$ \textcolor{Orange}{\textsc{inner}} \\
+                \begin{scriptsize}
+                    \cite{AnderBois2019, Goodhue2022a}           
+                \end{scriptsize}
+            \end{itemize}
+            \begin{small}
+                \ex. \a. \textcolor{RoyalBlue}{Isn't} Jane coming \textcolor{Plum}{too}? 
+                \b. *\textcolor{RoyalBlue}{Isn't} Jane coming \textcolor{Orange}{either}?
+                \b. *Is Jane \textcolor{WildStrawberry}{not} coming \textcolor{Plum}{too}? 
+                \b. Is Jane \textcolor{WildStrawberry}{not} coming \textcolor{Orange}{either}? 
+                \par
+            \end{small}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}{Negation in PQs: bias}
+    \begin{large}\textsc{bias}\end{large}: the questioner's inclination towards one answer \\
+    \begin{scriptsize}
+        \cite{buring-gunlogson00, Sudo2013, Gaertner2017} 
+    \end{scriptsize}
+    \begin{itemize}
+        \item[$\rightarrow$] \textsc{epistemic}: private questioner beliefs, knowledge, hopes, etc.
+        \item[$\rightarrow$] \textsc{evidential}: contextual cues available to all interlocutors 
+    \end{itemize}
+    \pause 
+    \begin{itemize}
+        \item positive (for $p$) , negative (for $\neg p$), neutral 
+        \item non-truth-conditional aspect of PQs meaning
+    \end{itemize} 
+    \pause
+    \begin{small}
+        \ex. \a. \textcolor{RoyalBlue}{Isn't} Natasha married? \hfill \textcolor{RoyalBlue}{\textsc{highNPQs}}
+            \a. evidential: negative or neutral
+            \b. epistemic: she is married -- positive
+            \z. 
+            \vspace{.5em}
+        \b. Is Natasha \textcolor{WildStrawberry}{not} married? \hfill \textcolor{WildStrawberry}{\textsc{lowNPQs}}
+            \a. evidential: she is not married -- negative
+            \b. epistemic: positive
+        \par 
+    \end{small}
+  
+\end{frame}
+
+\begin{frame}{Bias in Russian PQs: \textit{razve}}
+    \begin{scriptsize}
+        \cite{Repptoappear, Korotkovatoappear}
+    \end{scriptsize}
+    \ex.\ag. Razve Egor uexal v Venu?  \\
+    \textsc{razve} Egor left in Vienna \\\\
+    `Did Egor go to Vienna? (I believe he didn't.)' \\  
+    \a. evidential: he is in Vienna -- positive
+    \b. epistemic: he is not in Vienna -- negative  
+    \z. 
+    \vspace{0.5em}
+    \pause
+    \bg. Razve Egor ne uexal v Venu?  \\
+    \textsc{razve} Egor not left in Vienna \\\\
+    `Didn't Egor go to Vienna?' \\  
+    \a. evidential: he is not in Vienna -- negative
+    \b. epistemic: he is in Vienna -- positive  
+    \z. 
+    \par
+
+\end{frame}
+
+\begin{frame}{Negation and indefinites in Russian}
+    \begin{scriptsize}
+        \cite{Brown1999, Haspelmath2001, Geist2008, Marti2019, Kuhn2021}
+    \end{scriptsize}
+    \begin{itemize}
+        % \item propositional negation attached to a finite verb
+        \item strict negative concord lanaguage 
+        \begin{itemize}
+            \item negative concord items (NCIs): e.g. \textit{nikakoj} `no-which'
+        \end{itemize}
+        \item narrow scope non-specific indefinites -- wh-\textit{nibud'} 
+        \begin{itemize}
+            \item appears in the scope of some operators
+        \end{itemize}
+    \end{itemize}
+    \begin{small}
+        \ex.\ag. Nastja pročitala \{*kakuju-nibud' / *nikakuju\} knigu. \\
+        Nastja read which.\textsc{nibud'}  {} which.\textsc{nci} book \\\\
+        `Nastja read a book.' \\  
+        \vspace{0.5em}
+        \bg. Nastja ne pročitala \{*kakuju-nibud' / nikakuju\} knigu. \\
+        Nastja not read which.\textsc{nibud'}  {} which.\textsc{nci} book \\\\
+        `Nastja didn't read a book.' \\ 
+        \par
+        \pause
+        \vspace{-0.5em}
+        \exg. Nastja xočet pročitat' kakuju-nibud' knigu. \\ 
+        Nastja wants to-read  which.\textsc{nibud'} book \\\\
+        `Nastja wants to read any book.' \\
+        \par
+    \end{small}
+\end{frame}
+
+\begin{frame}{Negation and indefinites in Russian PQs}
+    \begin{scriptsize}
+        \cite{Brown1995, Abels2005, Zanon2023}
+    \end{scriptsize}
+
+    \begin{small}
+        \ex.\ag. Nastja pročitala \{kakuju-nibud' / *nikakuju\} knigu? \\
+        Nastja read which.\textsc{nibud'}  {} which.\textsc{nci} book \\\\
+        `Did Nastja read any book?' \rcommentg{V2} \\
+        \vspace{.5em}
+        \bg. Nastja \textcolor{WildStrawberry}{ne} \textcolor{WildStrawberry}{pročitala} \{kakuju-nibud' / nikakuju\} knigu? \\
+        Nastja not read which.\textsc{nibud'}  {} which.\textsc{nci} book \\\\
+        `Did Nastja not read any book?' \rcommentg{\textcolor{WildStrawberry}{\textsc{low}}} \\
+        \par
+    \end{small}
+    \pause 
+    %\textcolor{RoyalBlue}{\textsc{highNPQs}} \\
+    \begin{small}
+        \ex. \ag. Pročitala li Nastja \{kakuju-nibud' / *nikakuju\} knigu? \\
+        read \textsc{li} Nastja which.\textsc{nibud'}  {} which.\textsc{nci} book \\\\
+        `Did Nastja read any book?' \rcommentg{V1 \textit{li}} \\
+        \vspace{.5em}
+        \bg. \textcolor{RoyalBlue}{Ne} \textcolor{RoyalBlue}{pročitala} \textcolor{RoyalBlue}{li} Nastja \{kakuju-nibud' / *nikakuju\} knigu? \\
+        not read \textsc{li} Nastja which.\textsc{nibud'}  {} which.\textsc{nci} book \\\\
+        `Did Nastja read any book?' \rcommentg{\textcolor{RoyalBlue}{\textsc{high}}}  \\ 
+        \par  
+    \end{small}
+\end{frame}
+
+\begin{frame}{Negation in Russian PQs: predictions}
+    \begin{large}
+        \textcolor{RoyalBlue}{\textsc{highNPQs}} \\
+    \end{large}
+    \begin{itemize}
+        \item \cite{Brown1995, Abels2005}: negation is too high for NCIs licensing $\rightarrow$
+         \textcolor{Plum}{\textsc{outer}} 
+         \begin{itemize}
+            \item \cite{Zanon2023}: polarity items \textit{eščë} `still, yet' and \textit{uže} `already' 
+            are available $\rightarrow$ \textcolor{Plum}{\textsc{outer}} and \textcolor{Orange}{\textsc{inner}}
+         \end{itemize}
+        \item evidential bias: 
+        \begin{itemize}
+            \item \textcolor{Plum}{\textsc{outer}}: checking $p$ $\rightarrow$ 
+            neutral or positive 
+        \end{itemize}
+    
+    \end{itemize}
+
+    \begin{large}
+        \textcolor{WildStrawberry}{\textsc{lowNPQs}} \\
+    \end{large}
+
+    \begin{itemize}
+        \item \textcolor{Plum}{\textsc{outer}} and \textcolor{Orange}{\textsc{inner}}
+    \end{itemize}
+        \begin{itemize}
+            \item evidential bias: 
+            \begin{itemize}
+                \item \textcolor{Plum}{\textsc{outer}}: checking $p$ $\rightarrow$ 
+                neutral or positive 
+                \item \textcolor{Orange}{\textsc{inner}}: checking $\neg p$ $\rightarrow$ 
+                negative
+            \end{itemize}
+        \end{itemize}
+\end{frame}
+
+\section{Experiment}
+
+\begin{frame}{Participants and method}
+    \begin{large} naturalness judgment task \end{large} (replication of \citealp{Stankova2023})
+    \begin{itemize}
+        \item rate PQs in context 
+        \item Likert scale from 1 `completely unnatural' to 7 `completely natural'
+        \item run on L-Rex \citep{Lrex}
+        \item 68 participants found online, not paid  
+    \end{itemize}
+
+    % Experiment 1 and 2: 
+    % \begin{itemize}
+    %     \item 2 $\times$ 2 $\times$ 2 
+    %     \item \textsc{context}, \textsc{strategy}, \textsc{indefinite}/\textsc{polarity}
+    % \end{itemize}
+\end{frame}
+
+\begin{frame}{Design and materials}
+    82 items in total 
+    \begin{itemize}
+        \item 32 items -- NPQs experiment (main)
+        \item 50 items -- secondary filler experiments
+        \begin{itemize}
+            \item PPQs vs NPQs -- 8 items 
+        \item \textit{razve}-PQs -- 8 items 
+        \end{itemize}
+        \item within-items and within-subjects manipulation
+        \item written stimuli distributed on lists (Latin square)
+    \end{itemize}
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{lcl}
+            \toprule
+            NPQs main & 2 $\times$ 2 $\times$ 2 & \textsc{context, strategy, indefinite} \\
+            PPQs vs NPQs & 2 $\times$ 2 $\times$ 2 & \textsc{context, strategy, polarity} \\
+            \textit{razve}-PQs & 3 $\times$ 2 & \textsc{context, polarity} \\
+            \bottomrule
+        \end{tabular}
+        \caption{Experiments to report}
+        \label{tab:ex1_main}
+    \end{table}
+
+
+\end{frame}
+
+\begin{frame}{Design and materials}
+    \textsc{context}: evidential bias manipulation 
+    \begin{itemize}
+        \item neutral (A): no implication of $p$ or $\neg p$
+        \item negative (A'): context implies $\neg p$ 
+    \end{itemize}
+    \begin{footnotesize}
+    \ex. \textcolor{blue}{\textbf{Neutral}} \\
+        \ag.[A:] U Kiry na dače est' teplica, \textcolor{blue}{kotoruju} \textcolor{blue}{ej} 
+        \textcolor{blue}{sobrali} \textcolor{blue}{v} \textcolor{blue}{prošlom} \textcolor{blue}{godu.}  \\
+        at Kira on dacha is greenhouse which her built in last year \\\\
+        `Kira has a greenhouse at her dacha \textcolor{blue}{which was built last year.}' \\
+        \z. \textcolor{purple}{\textbf{Negative}} \\
+        \ag.[A':] U Kiry na dače est' teplica, \textcolor{purple}{v} \textcolor{purple}{kotoroj} 
+        \textcolor{purple}{ona} \textcolor{purple}{vyraščivaet} \textcolor{purple}{cvety.}  \\
+        at Kira on dacha is greenhouse in which she grows flowers \\\\
+        `Kira has a greenhouse in her dacha \textcolor{purple}{where she grows flowers.}' \\
+        \z. \textbf{Question}: to be rated from 1 to 7 \\
+        \a.[B:] Doesn't Kira grow some vegetables there?
+        \par 
+    \end{footnotesize}
+    \pause 
+    \begin{small}
+        \begin{itemize}
+            \item additionaly for the secondary experiments -- positive (context implies $p$)
+        \end{itemize}
+    \end{small}
+\end{frame}
+
+\begin{frame}{Design and materials}
+    \textsc{strategy}: \textcolor{RoyalBlue}{\textsc{highNPQs}} and 
+    \textcolor{WildStrawberry}{\textsc{lowNPQs}} manipulation
+
+    \vspace{1em}
+    \textsc{indefinite}: \textcolor{Orange}{NCIs $\approx$ \textsc{inner}} and 
+    \textcolor{Plum}{wh-\textit{nibud'} $\approx$ \textsc{outer}} manipulation
+
+    \vspace{1em}
+\begin{footnotesize}
+    \ex. \ag.[B:] \textcolor{RoyalBlue}{Ne} \textcolor{RoyalBlue}{posadila} \textcolor{RoyalBlue}{li}
+     tuda Kira \{\textcolor{Orange}{nikakie} / \textcolor{Plum}{kakije-nibud'}\} ovošči? \\
+    not planted \textsc{li} there Kira which.\textsc{nci} {} which.\textsc{nibud'}  vegetables \\\\
+    `Didn't Kira plant there any/some vegetables?' \\
+    \z.
+    \ag.[B':] Kira \textcolor{WildStrawberry}{ne} \textcolor{WildStrawberry}{posadila} tuda
+    \{\textcolor{Orange}{nikakie} / \textcolor{Plum}{kakije-nibud'}\} ovošči? \\
+    Kira not planted there which.\textsc{nci} {} which.\textsc{nibud'} vegetables \\\\
+    `Did Kira not plant there any/some vegetables?' 
+    \par 
+\end{footnotesize}
+\pause 
+\begin{small}
+    \begin{itemize}
+        \item additionaly for the secondary experiments -- \textsc{polarity} (PPQs/NPQs)
+    \end{itemize}
+\end{small}
+
+\end{frame}
+
+\begin{frame}{Design and materials}
+    \begin{figure}[h]
+        \includegraphics[width=\textwidth]{pics/lrex-ex.pdf}
+        \caption{Item example from L-Rex}
+    \end{figure}
+\end{frame}
+
+\section{Results and discussion} 
+
+\begin{frame}{Results: NPQs}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/e1_main_aligned.eps}
+                \caption{Raw; horizontal line $=$ medians} 
+                \label{fig:main1}
+            \end{figure}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/e1_interact_aligned.eps}
+                \caption{NPQs means} 
+                \label{fig:inter1}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Results: NPQs}
+    \begin{columns} \onslide<1->{\begin{column}{0.5\textwidth}
+            \texttt{clmm} by \cite{ordinal2023}
+            \begin{itemize}
+                \item main effect of all factors} % \\ \begin{scriptsize} ($p$s $< .001$) 
+                %\end{scriptsize} 
+                \onslide<2->{\item interaction between \textsc{strategy} and \textsc{indefinite} 
+                \begin{scriptsize} ($z = 10.046, p < .001$) \end{scriptsize}
+                \begin{itemize}
+                    \item wh-\textit{nibud'}: fine among all
+                    \item NCIs: worse in general but much more in V1
+                \end{itemize}}
+                 
+                \onslide<3->{\item interaction between \textsc{strategy} and \textsc{context} \\
+                \begin{scriptsize} ($z = 2.855, p = .004$) \end{scriptsize}
+                \begin{itemize}
+                    \item neutral context better in general but much more in V1
+                \end{itemize}
+            \end{itemize}}
+        \end{column}
+    \onslide<1->{\begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/e1_interact_aligned.eps}
+                \caption{NPQs means}
+                \label{fig:inter26}
+            \end{figure}
+        \end{column}}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Discussion: NPQs}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item[\circled{1}] What is the syntactic-\\semantic 
+                status of the negation depending on the question type?
+            \end{itemize}
+            \vspace{1em}
+            \textsc{strategy}/\textsc{indefinite} interaction
+            \begin{itemize}
+                \begin{small}
+                    %\item NCIs are worse in general but more in V1 \textit{li}
+                    \item NCIs in V1 \textit{li} ( $=$ \textcolor{RoyalBlue}{\textsc{highNPQ}})
+                    unnatural $\rightarrow$ \textcolor{Plum}{\textsc{outer}}
+                    \item V2 ( $=$ \textcolor{WildStrawberry}{\textsc{lowNPQ}}) 
+                    $\rightarrow$ \textcolor{Plum}{\textsc{outer}} and
+                     \textcolor{Orange}{\textsc{inner}}
+                \end{small}
+            \end{itemize}       
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/e1_interact_aligned.eps}
+                \caption{NPQs means}
+                \label{fig:inter5}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Discussion: NPQs}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+                \begin{itemize}
+                    \item[\circled{2}] How does negation interact with evidential bias? 
+                \end{itemize}
+            \vspace{1em}
+            \textsc{strategy}/\textsc{context} interaction
+            \begin{itemize}
+                \item NPQs are more natural in neutral (unlike in English)
+                %\item V2 ( $=$ \textcolor{WildStrawberry}{\textsc{lowNPQ}}) to express negative bias
+                \item NCIs $+$ V2 ( $=$ \textcolor{WildStrawberry}{\textsc{lowNPQ}}) $+$ neutral 
+                    $\rightarrow$ \textcolor{Plum}{\textsc{outer}}
+            \end{itemize}       
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/e1_interact_aligned.eps}
+                \caption{NPQs means}
+                \label{fig:inter5}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Results: PPQs vs NPQs}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/f1_main_aligned.eps}
+                \caption{Raw; horizontal line $=$ medians}
+                \label{fig:main1}
+            \end{figure}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/f1_interact_aligned.eps}
+                \caption{PPQs vs NPQs means}
+                \label{fig:inter1}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Results: PPQs vs NPQs}
+    \begin{columns}
+        \onslide<1->{\begin{column}{0.5\textwidth}
+            wh-\textit{nibud'} indefinites only
+            \vspace{1em}
+            \begin{itemize}
+                \item[\circled{1}] What is the syntactic-\\semantic 
+                status of the negation depending on the question type?
+                \begin{itemize}
+                    \item V1 \textit{li} no effect/impact of polarity
+                    %\item main effect of context 
+                \end{itemize}}
+                \onslide<2->{\item[\circled{2}] How does negation interact with evidential bias? 
+                \begin{itemize}
+                    \item \textsc{context/strategy/polarity} interaction
+                    \item \textcolor{WildStrawberry}{\textsc{lowNPQs}} unnatural to express positive
+                    \item \textcolor{RoyalBlue}{\textsc{highNPQs}} in positive context natural
+                \end{itemize}
+            \end{itemize}}
+        \end{column}
+
+        \onslide<1->{\begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/f1_interact_aligned.eps}
+                \caption{PPQs vs NPQs means}
+                \label{fig:inter3}
+            \end{figure}
+        \end{column}}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Results: \textit{razve}-PQs}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/f2_main_aligned.eps}
+                \caption{Raw; horizontal line $=$ medians}
+                \label{fig:razve1}
+            \end{figure}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/f2_interact_aligned.eps}
+                \caption{\textit{razve}-PQs means}
+                \label{fig:razve2}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Discussion: \textit{razve}-PQs}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item[\circled{3}] How does the particle \textsc{razve} correlate with evidential bias? 
+            \end{itemize}
+            \vspace{1em}
+            \begin{itemize}
+                \begin{small}
+                    \item effect of negative and positive contexts 
+                    \item acceptable in neutral context due to epistemic bias
+                \end{small}
+            \end{itemize}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/f2_interact_aligned.eps}
+                \caption{Caption}
+                \label{fig:inter1}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Cross-Slavic comparison}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/e1_ru_inter_aligned.eps}
+                \caption{Russian}
+                \label{fig:inter_ru}
+            \end{figure}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pics/e1_cz_inter_aligned.eps}
+                \caption{Czech}
+                \label{fig:inter_cz}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Conclusion}
+    \begin{itemize}
+        \item[\circled{1}] Negation in Russian PQs is primarily interpreted 
+        as \textcolor{Plum}{\textsc{outer}} 
+        \begin{itemize}
+            \item \textcolor{RoyalBlue}{\textsc{high}} $\rightarrow$ \textcolor{Plum}{\textsc{outer}}, 
+            \textcolor{WildStrawberry}{\textsc{low}} $\rightarrow$ \textcolor{Plum}{\textsc{outer}} 
+            or \textcolor{Orange}{\textsc{inner}}
+            \item \textcolor{WildStrawberry}{\textsc{lowNPQs}} with NCIs in netral contexts are interpreted as 
+            \textcolor{Plum}{\textsc{outer}}
+        \end{itemize}
+        \item[\circled{2}] Neutral evidential bias is more natural for negative PQs
+        \begin{itemize}
+            \item negative bias is not required
+            \item positive is also available for \textcolor{RoyalBlue}{\textsc{highNPQs}}
+        \end{itemize}
+        \item[\circled{3}] Naturalness of \textit{razve}-PQs is affected by evidence
+    \end{itemize}
+    \pause
+    \vspace{1em}
+    \begin{block}{Hypothesis}
+        The use of negation in Russian (Slavic) PQs might be 
+        more closely tied to epistemic than to evidential bias. 
+        However, this bias may be weak as compared to the one in English \textsc{highNPQs}. 
+    \end{block} 
+     
+\end{frame}
+
+
+% \begin{frame}{Conclusion}
+%     from Radek's kostra:
+%     \begin{itemize}
+%         \item Negation in Russian polar questions primarily interpreted as outer negation
+%         \item Negation in Russian PQs does not necessarily imply evidential bias
+%         \item Razve does imply evidential bias
+%         \item What is the role of epistemic bias? \\
+%         Hypothesis: the use of negation in Russian (Slavic) polar questions might be 
+%         more closely tied to epistemic than to evidential bias, although this bias may 
+%         be weak as compared to the one in English (cf. Šimík 2023)
+%     \end{itemize}
+%     from me: 
+%     \begin{itemize}
+%         \item INTONATION! cite Esipova and Romero
+%     \end{itemize}
+% \end{frame}
+
+\begin{frame}[plain]{}
+    \begin{center}
+        \Large{\textbf{Thank you!}}
+    \end{center}
+\end{frame}
+
+%\begin{frame}[noframenumbering, plain]{References}
+\begin{frame}[allowframebreaks, noframenumbering, plain]{References}
+    % Beamer does not support BibTeX so references must be inserted manually as below
+    \begin{tiny}
+        \bibliography{mybib}
+    \end{tiny}
+        
+\end{frame}
+
+
+
+\end{document}

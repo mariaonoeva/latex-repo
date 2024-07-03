@@ -1,0 +1,104 @@
+% totally and impudently copied from Radek's preamble, thanks!
+
+\documentclass[12pt]{article}
+\usepackage[letterpaper,left=1in, right=1in, top=1in, bottom=1in]{geometry}
+% for symbols as checkmarks and stuff
+\usepackage{amssymb}% http://ctan.org/pkg/amssymb
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+\usepackage{natbib}
+\usepackage{color} %needed for colored references
+\usepackage[dvipsnames]{xcolor}
+% \usepackage{ogonek}
+% \usepackage[utf8]{inputenc}
+% \usepackage[LFE,LAE]{fontenc}
+% \usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{libertinus}
+% \setmainfont{CMU Serif}
+\usepackage{xunicode}
+\usepackage{booktabs,tabularx}
+%\usepackage[table]{xcolor}
+\usepackage[linguistics]{forest}
+\usepackage{multicol}
+\usepackage{tcolorbox} %for boxes around text
+\usepackage{wasysym}
+\usepackage{xspace}
+\usepackage{arabtex}
+\usepackage{linguex,cgloss}
+
+\setcitestyle{aysep={},notesep={}} %makes no comma between author and year
+
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% macros for citations:
+
+\newcommand{\citeposst}[1]{\citeauthor{#1}'s (\citeyear{#1})} % produces Chomsky's (1995)
+\newcommand{\citeposstpg}[2]{\citeauthor{#1}'s (\citeyear[#2]{#1})} % produces Chomsky's (1995: page)
+\newcommand{\citepossalt}[1]{\citeauthor{#1}'s \citeyear{#1}} % produces Chomsky's 1995
+\newcommand{\citepossaltpg}[2]{\citeauthor{#1}'s \citeyear[#2]{#1}} % produces Chomsky's 1995: page
+
+\newcommand{\lev}[1]{\textsf{\small #1}}
+
+\newcommand{\minsp}[1]{#1\hspace{-2pt}} %example of use: \-2{(} (produces a bracket followed by reduced horizontal space by 2pt)
+
+
+% hyperlinks
+\usepackage[colorlinks=true,allcolors=black]{hyperref}
+\urlstyle{same}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% other stuff discovered by me %%%%%%%%%%%%%%%%%%%%%%%%%
+%\setmainfont{Times New Roman}
+%\setmainfont{TeX Gyre Termes} % a clone for Times New Roman with textsc
+%\singlespacing
+
+%\usepackage[urlcolor  = blue]{nohyperref} % makes links disappear 
+
+\usepackage{float} % package for float figures 
+\usepackage[normalem]{ulem} % for strikethrough text
+
+% for checkmarks
+% \newcommand{\cmark}{\ding{51}}%
+% \newcommand{\xmark}{\ding{55}}%
+% \newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}%
+% \hspace{-2.5pt}}
+% \newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+
+\usepackage{stmaryrd} %for double brackets
+\usepackage[multiple]{footmisc} %for multiple footnotes
+
+
+% for figures
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{wrapfig} % for wraping 
+\usepackage{blindtext} % for mimipages?
+
+
+% TIKZ
+%\usepackage{tikz}
+%\usetikzlibrary{shapes,snakes}
+%%\definecolor{WildStrawberry}{rgb}{1.0, 0.65, 0.79}
+%\tikzstyle{mybox} = [draw=WildStrawberry, fill=gray!10, very thick,
+%rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+%\tikzstyle{fancytitle} =[fill=WildStrawberry, text=black]
+
+% for diplaying table of content in a particular way 
+\setcounter{tocdepth}{2}
+
+% for indentaion and paragraph skips
+\setlength\parindent{0pt}
+\setlength\parskip{5pt}
+
+\newcommand{\rcommentg}[1]{\hfill\raisebox{1.9\baselineskip}[0pt][0pt]{#1}}
+\newcommand{\rcommentgg}[1]{\hfill\raisebox{1.1\baselineskip}[0pt][0pt]{#1}}
+
+
+
+\renewcommand{\firstrefdash}{} % affects example refences in text
